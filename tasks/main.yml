@@ -1,24 +1,12 @@
 ---
-- hosts: self-pc
-  sudo: yes
-  vars_prompt:
-  - name: "backup_mail_password"
-    prompt: "Please enter your gmail password"
-    private: yes
-  vars:
-    backup_mail_exec_user: root
-    backup_mail_exec_user_home: "/{{ backup_mail_exec_user }}"
-    # backup_mail_exec_user_home: "/home/{{ backup_mail_exec_user }}"
-    backup_mail_address: 'genzouw@gmail.com'
-  tasks:
-  - name: Install composer.
-    shell: '/usr/local/bin/composer global require "nette/mail":"2.2.3"'
-    sudo_user: "{{ backup_mail_exec_user }}"
-  - shell: 'echo "{{ backup_mail_address }}:{{ backup_mail_password }}" > {{ backup_mail_exec_user_home }}/.backup_mail'
-  - file: path={{ backup_mail_exec_user_home }}/.backup_mail state=file owner={{ backup_mail_exec_user }} group={{ backup_mail_exec_user }} mode=600
-  - copy:
-      src: files/backup_mail.php
-      dest: /usr/local/bin/
-      owner: "{{ backup_mail_exec_user }}"
-      group: "{{ backup_mail_exec_user }}"
-      mode: 0777
+- name: Install composer.
+  shell: '/usr/local/bin/composer global require "nette/mail":"2.2.3"'
+  sudo_user: "{{ backup_mail_exec_user }}"
+- shell: 'echo "{{ backup_mail_address }}:{{ backup_mail_password }}" > {{ backup_mail_exec_user_home }}/.backup_mail'
+- file: path={{ backup_mail_exec_user_home }}/.backup_mail state=file owner={{ backup_mail_exec_user }} group={{ backup_mail_exec_user }} mode=600
+- copy:
+    src: backup_mail.php
+    dest: /usr/local/bin/
+    owner: "{{ backup_mail_exec_user }}"
+    group: "{{ backup_mail_exec_user }}"
+    mode: 0777

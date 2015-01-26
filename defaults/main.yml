@@ -1,3 +1,6 @@
 ---
-
-
+backup_mail_password: 'your password here.'
+backup_mail_exec_user: root
+backup_mail_exec_user_home: "/{{ backup_mail_exec_user }}"
+# backup_mail_exec_user_home: "/home/{{ backup_mail_exec_user }}"
+backup_mail_address: 'yourss@gmail.com'
