@@ -1,10 +1,9 @@
 ---
-dependencies:
-  - genzouw.centos-common-ja
+dependencies: []
 
 galaxy_info:
   author: genzouw
-  description: 'Scrit to setup backup_mail.'
+  description: 'Scrit to setup backup-mail.'
   license: "license (BSD, MIT)"
   min_ansible_version: 1.6
   platforms:
