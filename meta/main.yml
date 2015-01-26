@@ -1,0 +1,17 @@
+---
+dependencies:
+  - genzouw.centos-common-ja
+
+galaxy_info:
+  author: genzouw
+  description: 'Scrit to setup backup_mail.'
+  license: "license (BSD, MIT)"
+  min_ansible_version: 1.6
+  platforms:
+  - name: EL
+    versions:
+    - all
+  categories:
+    - networking
+    - system
+    - web
